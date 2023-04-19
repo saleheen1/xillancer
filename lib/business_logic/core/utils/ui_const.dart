@@ -59,3 +59,9 @@ final shimmerGradient = LinearGradient(colors: [
   Get.theme.cardColor.withAlpha(40),
   Get.theme.secondaryHeaderColor.withAlpha(60),
 ]);
+
+// Margin
+// ==========>
+
+EdgeInsets marginLeft(double number) =>
+    EdgeInsets.only(left: Get.width * number / 100);
