@@ -23,4 +23,18 @@ class TextUtils {
       fontSize: Get.width * .035,
     );
   }
+
+  static TextStyle appbarTitle({color}) {
+    return TextStyle(
+      color: color ?? greyFour,
+      fontSize: Get.width * .045,
+    );
+  }
+
+  static TextStyle inputLabel({color}) {
+    return TextStyle(
+      color: color ?? greyFour,
+      fontSize: Get.width * .040,
+    );
+  }
 }

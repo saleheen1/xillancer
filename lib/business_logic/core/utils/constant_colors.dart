@@ -12,3 +12,4 @@ const Color greyThree = Color(0xff344054);
 const Color greyFour = Color(0xff475467);
 const Color greyFive = Color(0xffD0D5DD);
 const Color greyBorder = Color(0xffEAECF0);
+final inputFieldBorderColor = Colors.grey.withOpacity(.4);

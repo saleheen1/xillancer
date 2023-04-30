@@ -4,6 +4,7 @@ import 'package:xilancer/business_logic/controllers/translate_controller.dart';
 import 'package:xilancer/business_logic/core/utils/constant_colors.dart';
 import 'package:xilancer/business_logic/core/utils/ui_const.dart';
 import 'package:xilancer/business_logic/core/utils/ui_utils.dart';
+import 'package:xilancer/ui/widgets/text_utils.dart';
 
 appbarCommon(
     {String? title, bool hasBackButton = true, bool centerTitle = false}) {
@@ -28,7 +29,10 @@ appbarCommon(
         ],
       ),
     ),
-    title: Text(title ?? ''),
+    title: Text(
+      title ?? '',
+      style: TextUtils.appbarTitle(),
+    ),
   );
 }
 

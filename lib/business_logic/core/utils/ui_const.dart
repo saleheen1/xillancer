@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+var screenPaddingH = paddingH(6);
+
 SizedBox gapH(double number) => SizedBox(height: Get.width * number / 100);
 SizedBox gapW(double number) => SizedBox(width: Get.width * number / 100);
 EdgeInsets padding(double number) => EdgeInsets.all(Get.width * number / 100);
@@ -63,5 +65,21 @@ final shimmerGradient = LinearGradient(colors: [
 // Margin
 // ==========>
 
+EdgeInsets margin(double number) => EdgeInsets.all(Get.width * number / 100);
+EdgeInsets marginRight(double number) =>
+    EdgeInsets.only(right: Get.width * number / 100);
 EdgeInsets marginLeft(double number) =>
     EdgeInsets.only(left: Get.width * number / 100);
+EdgeInsets marginTop(double number) =>
+    EdgeInsets.only(top: Get.width * number / 100);
+EdgeInsets marginBottom(double number) =>
+    EdgeInsets.only(bottom: Get.width * number / 100);
+EdgeInsets marginH(double number) =>
+    EdgeInsets.symmetric(horizontal: Get.width * number / 100);
+EdgeInsets marginV(double number) =>
+    EdgeInsets.symmetric(vertical: Get.width * number / 100);
+
+EdgeInsets marginSym({required double h, required double v}) {
+  return EdgeInsets.symmetric(
+      horizontal: Get.width * h / 100, vertical: Get.width * v / 100);
+}

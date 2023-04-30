@@ -6,4 +6,5 @@ var translateStrings = {
   ConstString.chooseArole: ConstString.chooseArole,
   ConstString.chooseRoleToSignup: ConstString.chooseRoleToSignup,
   ConstString.joinAsAfreelancer: ConstString.joinAsAfreelancer,
+  ConstString.continueTxt: ConstString.continueTxt,
 };
