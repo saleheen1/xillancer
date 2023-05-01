@@ -11,12 +11,13 @@ class CustomInput extends StatelessWidget {
   final FocusNode? focusNode;
   final bool isNumberField;
   final String? prefixIcon;
-  final String? suffixIcon;
+  final IconData? suffixIcon;
   final double? paddingHorizontal;
   final double? paddingVertical;
   final double? marginB;
   final double? borderRadius;
   TextEditingController? controller;
+  Function()? suffixOnClick = () {};
 
   CustomInput({
     Key? key,
@@ -34,6 +35,7 @@ class CustomInput extends StatelessWidget {
     this.marginB,
     this.borderRadius,
     this.paddingVertical,
+    this.suffixOnClick,
   }) : super(key: key);
 
   @override
@@ -68,19 +70,12 @@ class CustomInput extends StatelessWidget {
                     )
                   : null,
               suffixIcon: suffixIcon != null
-                  ? Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 20.0,
-                          width: 40.0,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(prefixIcon!),
-                                fit: BoxFit.fitHeight),
-                          ),
-                        ),
-                      ],
+                  ? InkWell(
+                      onTap: suffixOnClick,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [Icon(suffixIcon)],
+                      ),
                     )
                   : null,
               enabledBorder: OutlineInputBorder(
