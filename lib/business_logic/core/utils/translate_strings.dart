@@ -21,4 +21,6 @@ var translateStrings = {
   ConstString.plzEnterLastName: ConstString.plzEnterLastName,
   ConstString.plzEnterEmail: ConstString.plzEnterEmail,
   ConstString.plzEnterPass: ConstString.plzEnterPass,
+  ConstString.alreadyHaveAnAccount: ConstString.alreadyHaveAnAccount,
+  ConstString.signUp: ConstString.signUp,
 };

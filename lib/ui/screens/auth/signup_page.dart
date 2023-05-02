@@ -2,27 +2,30 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:xilancer/business_logic/controllers/signup_controller.dart';
+import 'package:xilancer/business_logic/controllers/all_controllers.dart';
 import 'package:xilancer/business_logic/controllers/translate_controller.dart';
 import 'package:xilancer/business_logic/core/utils/const_strings.dart';
 import 'package:xilancer/business_logic/core/utils/ui_const.dart';
+import 'package:xilancer/business_logic/core/utils/ui_utils.dart';
+import 'package:xilancer/ui/screens/account_setup/account_setup_page.dart';
 import 'package:xilancer/ui/screens/auth/components/auth_helper.dart';
+import 'package:xilancer/ui/screens/auth/components/social_login.dart';
+import 'package:xilancer/ui/screens/auth/login_page.dart';
 import 'package:xilancer/ui/widgets/common_widgets.dart';
 import 'package:xilancer/ui/widgets/custom_input.dart';
 import 'package:xilancer/ui/widgets/text_utils.dart';
 
 import '../../../business_logic/core/utils/constant_colors.dart';
 
-class SignupFreelancerPage extends StatefulWidget {
-  const SignupFreelancerPage({super.key});
+class SignupPage extends StatefulWidget {
+  const SignupPage({super.key});
 
   @override
-  State<SignupFreelancerPage> createState() => _SignupFreelancerPageState();
+  State<SignupPage> createState() => _SignupPageState();
 }
 
-class _SignupFreelancerPageState extends State<SignupFreelancerPage> {
+class _SignupPageState extends State<SignupPage> {
   final formKey = GlobalKey<FormState>();
-  SignupController signupController = Get.find<SignupController>();
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +34,7 @@ class _SignupFreelancerPageState extends State<SignupFreelancerPage> {
       backgroundColor: Colors.white,
       body: Listener(
         onPointerDown: (_) {
-          FocusScopeNode currentFocus = FocusScope.of(context);
-          if (!currentFocus.hasPrimaryFocus) {
-            currentFocus.focusedChild?.unfocus();
-          }
+          hideKeyboard(context);
         },
         child: SingleChildScrollView(
           child: GetBuilder<TranslateController>(
@@ -49,7 +49,7 @@ class _SignupFreelancerPageState extends State<SignupFreelancerPage> {
                       gapH(10),
                       Text(
                         tr.getString(ConstString.joinAsAfreelancer),
-                        style: TextUtils.titleMedium(),
+                        style: TextUtils.titleBigLight(),
                       ),
                       gapH(7),
 
@@ -165,7 +165,9 @@ class _SignupFreelancerPageState extends State<SignupFreelancerPage> {
 
                       gapH(3),
 
-                      buttonPrimary(ConstString.createAccount, () {}),
+                      buttonPrimary(ConstString.createAccount, () {
+                        Get.to(const AccountSetupPage());
+                      }),
 
                       gapH(4),
 
@@ -175,14 +177,16 @@ class _SignupFreelancerPageState extends State<SignupFreelancerPage> {
                           RichText(
                             text: TextSpan(
                               text:
-                                  '${tr.getString(ConstString.dontHaveAccount) + '?'}  ',
+                                  '${tr.getString(ConstString.alreadyHaveAnAccount) + '?'}  ',
                               style: TextStyle(
                                   color: const Color(0xff646464),
                                   fontSize: Get.width * 0.038),
                               children: <TextSpan>[
                                 TextSpan(
                                     recognizer: TapGestureRecognizer()
-                                      ..onTap = () {},
+                                      ..onTap = () {
+                                        Get.to(const LoginPage());
+                                      },
                                     text: tr.getString(ConstString.login),
                                     style: TextStyle(
                                       fontWeight: FontWeight.w600,
@@ -197,23 +201,7 @@ class _SignupFreelancerPageState extends State<SignupFreelancerPage> {
 
                       gapH(8),
 
-                      InkWell(
-                          onTap: () {},
-                          child: AuthHelper().socialLoginButton(
-                              'assets/icons/google.png',
-                              tr.getString(ConstString.loginWithGoogle),
-                              isloading: false)),
-
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      InkWell(
-                        onTap: () {},
-                        child: AuthHelper().socialLoginButton(
-                            'assets/icons/facebook.png',
-                            tr.getString(ConstString.loginWithFb),
-                            isloading: false),
-                      ),
+                      const SocialLogin(),
 
                       gapH(10),
                     ]),

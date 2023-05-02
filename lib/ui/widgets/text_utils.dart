@@ -3,11 +3,19 @@ import 'package:get/get.dart';
 import 'package:xilancer/business_logic/core/utils/constant_colors.dart';
 
 class TextUtils {
-  static TextStyle titleMedium({color}) {
+  static TextStyle titleBigLight({color}) {
     return TextStyle(
       color: color ?? greyPrimary,
       fontSize: Get.width * .06,
     );
+  }
+
+  static TextStyle title({color}) {
+    return TextStyle(
+        color: color ?? greyPrimary,
+        fontSize: Get.width * .047,
+        height: 1.3,
+        fontWeight: FontWeight.w600);
   }
 
   static TextStyle titleSmall({color}) {
@@ -21,6 +29,13 @@ class TextUtils {
     return TextStyle(
       color: color ?? greyFour,
       fontSize: Get.width * .035,
+    );
+  }
+
+  static TextStyle paragraphTwo({color}) {
+    return TextStyle(
+      color: color ?? greyFour,
+      fontSize: Get.width * .038,
     );
   }
 

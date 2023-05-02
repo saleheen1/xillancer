@@ -18,6 +18,8 @@ class ConstString {
   static const String plzEnterLastName = 'Please enter your last name';
   static const String plzEnterEmail = 'Please enter your email';
   static const String plzEnterPass = 'Please enter a password';
+  static const String alreadyHaveAnAccount = 'Already have an account';
+  static const String signUp = 'Sign up';
   static const String chooseRoleToSignup =
       'Choose a role from below to continue signing up';
   static const String plzCheckInternet =
