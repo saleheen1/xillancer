@@ -37,7 +37,7 @@ class AuthHelper {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            height: Get.width * 0.6,
+            height: Get.width * 0.06,
             width: Get.width * 0.1,
             decoration: BoxDecoration(
               image: DecorationImage(

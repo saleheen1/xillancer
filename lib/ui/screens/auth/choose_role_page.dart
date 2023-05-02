@@ -5,8 +5,7 @@ import 'package:xilancer/business_logic/controllers/translate_controller.dart';
 import 'package:xilancer/business_logic/core/utils/const_strings.dart';
 import 'package:xilancer/business_logic/core/utils/constant_colors.dart';
 import 'package:xilancer/business_logic/core/utils/ui_const.dart';
-import 'package:xilancer/business_logic/core/utils/ui_utils.dart';
-import 'package:xilancer/ui/screens/auth/freelancer/signup_freelancer_page.dart';
+import 'package:xilancer/ui/screens/auth/signup_freelancer_page.dart';
 import 'package:xilancer/ui/widgets/common_widgets.dart';
 import 'package:xilancer/ui/widgets/text_utils.dart';
 
