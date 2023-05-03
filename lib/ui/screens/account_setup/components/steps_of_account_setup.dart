@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:xilancer/business_logic/core/utils/constant_colors.dart';
 import 'package:xilancer/business_logic/core/utils/ui_const.dart';
+import 'package:xilancer/ui/screens/account_setup/components/account_setup_helper.dart';
 import 'package:xilancer/ui/widgets/text_utils.dart';
 
 import '../../../../business_logic/controllers/account_setup_controller.dart';
@@ -35,7 +36,7 @@ class StepsOfAccountSetup extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                for (var i = 0; i < 5; i++)
+                for (int i = 0; i < AccountSetupHelper().topics.length; i++)
                   Row(
                     children: [
                       Container(
@@ -68,7 +69,7 @@ class StepsOfAccountSetup extends StatelessWidget {
                               ),
                       ),
                       //line
-                      i > 3
+                      i > AccountSetupHelper().topics.length - 1
                           ? Container()
                           : Container(
                               height: 2,

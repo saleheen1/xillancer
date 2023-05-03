@@ -13,7 +13,7 @@ class TextUtils {
   static TextStyle title({color}) {
     return TextStyle(
         color: color ?? greyPrimary,
-        fontSize: Get.width * .047,
+        fontSize: Get.width * .045,
         height: 1.3,
         fontWeight: FontWeight.w600);
   }

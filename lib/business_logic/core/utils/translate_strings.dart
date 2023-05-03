@@ -23,4 +23,10 @@ var translateStrings = {
   ConstString.plzEnterPass: ConstString.plzEnterPass,
   ConstString.alreadyHaveAnAccount: ConstString.alreadyHaveAnAccount,
   ConstString.signUp: ConstString.signUp,
+  ConstString.setupYourAccount: ConstString.setupYourAccount,
+  ConstString.whatProfDescYou: ConstString.whatProfDescYou,
+  ConstString.exFrontendDev: ConstString.exFrontendDev,
+  ConstString.provideIntro: ConstString.provideIntro,
+  ConstString.exIamProDev: ConstString.exIamProDev,
+  ConstString.back: ConstString.back,
 };

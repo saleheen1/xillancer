@@ -20,6 +20,12 @@ class ConstString {
   static const String plzEnterPass = 'Please enter a password';
   static const String alreadyHaveAnAccount = 'Already have an account';
   static const String signUp = 'Sign up';
+  static const String setupYourAccount = 'Set up your account';
+  static const String whatProfDescYou = 'What professional title describes you';
+  static const String exFrontendDev = 'Ex: Front-End Developer';
+  static const String provideIntro = 'Provide an intro about yourself';
+  static const String exIamProDev = 'Ex: I am a professional developer...';
+  static const String back = 'Back';
   static const String chooseRoleToSignup =
       'Choose a role from below to continue signing up';
   static const String plzCheckInternet =
