@@ -18,6 +18,14 @@ class TextUtils {
         fontWeight: FontWeight.w600);
   }
 
+  static TextStyle titleLight({color}) {
+    return TextStyle(
+      color: color ?? greyPrimary,
+      fontSize: Get.width * .049,
+      height: 1.3,
+    );
+  }
+
   static TextStyle titleSmall({color}) {
     return TextStyle(
       color: color ?? greyFour,
@@ -49,7 +57,8 @@ class TextUtils {
   static TextStyle inputLabel({color}) {
     return TextStyle(
       color: color ?? greyFour,
-      fontSize: Get.width * .040,
+      fontWeight: FontWeight.w500,
+      fontSize: Get.width * .038,
     );
   }
 

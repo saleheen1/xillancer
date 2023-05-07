@@ -39,4 +39,9 @@ var translateStrings = {
   ConstString.addServicesAndSkills: ConstString.addServicesAndSkills,
   ConstString.addHourlyRateAndPhoto: ConstString.addHourlyRateAndPhoto,
   ConstString.finishSetup: ConstString.finishSetup,
+  ConstString.tellUsYourProExp: ConstString.tellUsYourProExp,
+  ConstString.addEduQualification: ConstString.addEduQualification,
+  ConstString.degree: ConstString.degree,
+  ConstString.fromTo: ConstString.fromTo,
+  ConstString.selectCountry: ConstString.selectCountry,
 };

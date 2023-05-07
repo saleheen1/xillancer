@@ -44,4 +44,10 @@ class ConstString {
       'Choose a role from below to continue signing up';
   static const String plzCheckInternet =
       'Please check your internet connection';
+  static const String tellUsYourProExp =
+      'Tell us about your professional experiences';
+  static const String addEduQualification = 'Add an educational qualification';
+  static const String degree = 'Degree';
+  static const String fromTo = 'From-To';
+  static const String selectCountry = 'Select country';
 }
