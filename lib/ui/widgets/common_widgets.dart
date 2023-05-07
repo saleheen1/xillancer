@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:xilancer/business_logic/controllers/translate_controller.dart';
 import 'package:xilancer/business_logic/core/utils/constant_colors.dart';
@@ -64,5 +65,60 @@ buttonPrimary(String title, VoidCallback pressed,
                 )
               : showLoading(color: Colors.white)),
     ),
+  );
+}
+
+bRow(
+    {String? icon,
+    required String title,
+    required String text,
+    bool hasBorder = false}) {
+  return Column(
+    children: [
+      GetBuilder<TranslateController>(builder: (tr) {
+        return Row(
+          children: [
+            //icon
+            SizedBox(
+              width: Get.width * 0.4,
+              child: Row(children: [
+                icon != null
+                    ? Row(
+                        children: [
+                          SvgPicture.asset(
+                            icon,
+                            height: Get.width * 0.06,
+                          ),
+                          const SizedBox(
+                            width: 7,
+                          ),
+                        ],
+                      )
+                    : Container(),
+                Text(tr.getString(title), style: TextUtils.paragraphTwo())
+              ]),
+            ),
+
+            Flexible(
+              child: Text(text, style: TextUtils.paragraphTwo()),
+            )
+          ],
+        );
+      }),
+      hasBorder == true
+          ? Container(
+              margin: const EdgeInsets.symmetric(vertical: 14),
+              child: dividerCommon(),
+            )
+          : Container()
+    ],
+  );
+}
+
+dividerCommon() {
+  return const Divider(
+    thickness: 1,
+    height: 2,
+    color: borderColor,
   );
 }

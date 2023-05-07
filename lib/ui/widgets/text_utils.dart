@@ -52,4 +52,11 @@ class TextUtils {
       fontSize: Get.width * .040,
     );
   }
+
+  static TextStyle addExp({color}) {
+    return TextStyle(
+        color: color ?? primaryColor,
+        fontSize: Get.width * .041,
+        fontWeight: FontWeight.w600);
+  }
 }

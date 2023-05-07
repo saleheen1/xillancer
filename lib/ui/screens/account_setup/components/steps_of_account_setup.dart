@@ -69,7 +69,7 @@ class StepsOfAccountSetup extends StatelessWidget {
                               ),
                       ),
                       //line
-                      i > AccountSetupHelper().topics.length - 1
+                      i > AccountSetupHelper().topics.length - 2
                           ? Container()
                           : Container(
                               height: 2,

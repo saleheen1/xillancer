@@ -26,6 +26,20 @@ class ConstString {
   static const String provideIntro = 'Provide an intro about yourself';
   static const String exIamProDev = 'Ex: I am a professional developer...';
   static const String back = 'Back';
+  static const String howDoYouProIntroUrself =
+      'How do you professionally introduce yourself?';
+  static const String introduction = 'Introduction';
+  static const String letClientKnowUrProExp =
+      'Let clients know about your professional experiences';
+  static const String experience = 'Experiences';
+  static const String whatYourEduBG = 'What’s your educational background?';
+  static const String educations = 'Educations';
+  static const String addServicesAndSkills =
+      'Add the services and necessary skills you offer';
+  static const String workAndSkills = 'Work & Skills';
+  static const String addHourlyRateAndPhoto =
+      'Add your hourly rate and profile photo to finish';
+  static const String finishSetup = 'Finish Set up';
   static const String chooseRoleToSignup =
       'Choose a role from below to continue signing up';
   static const String plzCheckInternet =

@@ -1,20 +1,22 @@
+import 'package:xilancer/business_logic/core/utils/const_strings.dart';
+
 class AccountSetupHelper {
   List<TopicClass> topics = [
     TopicClass(
-        topicTitle: 'How do you professionally introduce yourself?',
-        topicName: 'Introduction'),
+        topicTitle: ConstString.howDoYouProIntroUrself,
+        topicName: ConstString.introduction),
     TopicClass(
-        topicTitle: 'Let clients know about your professional experiences',
-        topicName: 'Experiences'),
+        topicTitle: ConstString.letClientKnowUrProExp,
+        topicName: ConstString.experience),
     TopicClass(
-        topicTitle: 'What’s your educational background?',
-        topicName: 'Educations'),
+        topicTitle: ConstString.whatYourEduBG,
+        topicName: ConstString.educations),
     TopicClass(
-        topicTitle: 'Add the services and necessary skills you offer',
-        topicName: 'Work & Skills'),
+        topicTitle: ConstString.addServicesAndSkills,
+        topicName: ConstString.workAndSkills),
     TopicClass(
-        topicTitle: 'Add your hourly rate and profile photo to finish',
-        topicName: 'Finish Set up'),
+        topicTitle: ConstString.addHourlyRateAndPhoto,
+        topicName: ConstString.finishSetup),
   ];
 }
 
