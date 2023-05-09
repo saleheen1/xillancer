@@ -50,4 +50,5 @@ class ConstString {
   static const String degree = 'Degree';
   static const String fromTo = 'From-To';
   static const String selectCountry = 'Select country';
+  static const String selectState = 'Select state';
 }

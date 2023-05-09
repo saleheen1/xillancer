@@ -3,6 +3,7 @@ import 'package:xilancer/business_logic/controllers/account_setup_controller.dar
 import 'package:xilancer/business_logic/controllers/auth_controllers/login_controller.dart';
 import 'package:xilancer/business_logic/controllers/auth_controllers/signup_controller.dart';
 import 'package:xilancer/business_logic/controllers/country_states_controllers/country_dropdown_controller.dart';
+import 'package:xilancer/business_logic/controllers/country_states_controllers/state_dropdown_controller.dart';
 import 'package:xilancer/business_logic/controllers/translate_controller.dart';
 
 initiateControllers() {
@@ -11,6 +12,7 @@ initiateControllers() {
   Get.put(LoginController());
   Get.put(AccountSetupController());
   Get.put(CountryDropdownController());
+  Get.put(StatesDropdownController());
 }
 
 SignupController signupController = Get.find<SignupController>();
@@ -18,4 +20,6 @@ LoginController loginController = Get.find<LoginController>();
 AccountSetupController accountSetupController =
     Get.find<AccountSetupController>();
 CountryDropdownController countryDropdownController =
+    Get.find<CountryDropdownController>();
+CountryDropdownController statesDropdownController =
     Get.find<CountryDropdownController>();

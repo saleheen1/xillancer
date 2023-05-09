@@ -6,6 +6,7 @@ import 'package:xilancer/business_logic/core/utils/const_strings.dart';
 import 'package:xilancer/business_logic/core/utils/constant_colors.dart';
 import 'package:xilancer/business_logic/core/utils/ui_const.dart';
 import 'package:xilancer/ui/screens/auth/dropdowns/country_dropdown.dart';
+import 'package:xilancer/ui/screens/auth/dropdowns/states_dropdown.dart';
 import 'package:xilancer/ui/widgets/common_widgets.dart';
 import 'package:xilancer/ui/widgets/custom_input.dart';
 import 'package:xilancer/ui/widgets/text_utils.dart';
@@ -205,7 +206,7 @@ addEduPopup() {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    tr.getString('Select country'),
+                    tr.getString(ConstString.selectCountry),
                     style: TextUtils.inputLabel(),
                   ),
                   gapH(4),
@@ -218,11 +219,11 @@ addEduPopup() {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    tr.getString('Select country'),
+                    tr.getString(ConstString.selectState),
                     style: TextUtils.inputLabel(),
                   ),
                   gapH(4),
-                  const CountryDropdown(),
+                  const StatesDropdown(),
                 ],
               )),
             ],

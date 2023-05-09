@@ -19,14 +19,14 @@ class CountryDropdown extends StatelessWidget {
                 return const CountryDropdownPopup();
               });
         },
-        child:
-            countryDropdownPlaceholder(hintText: cController.selectedCountry),
+        child: countryStateDropdownPlaceholder(
+            hintText: cController.selectedCountry),
       );
     });
   }
 }
 
-countryDropdownPlaceholder({required String hintText}) {
+countryStateDropdownPlaceholder({required String hintText}) {
   return Container(
     width: double.infinity,
     padding: paddingSym(h: 3, v: 3.5),

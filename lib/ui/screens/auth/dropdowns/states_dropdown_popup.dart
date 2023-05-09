@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:xilancer/business_logic/controllers/all_controllers.dart';
-import 'package:xilancer/business_logic/controllers/country_states_controllers/country_dropdown_controller.dart';
+import 'package:xilancer/business_logic/controllers/country_states_controllers/state_dropdown_controller.dart';
 import 'package:xilancer/business_logic/core/utils/const_strings.dart';
 import 'package:xilancer/business_logic/core/utils/constant_colors.dart';
 import 'package:xilancer/business_logic/core/utils/ui_const.dart';
 import 'package:xilancer/business_logic/core/utils/ui_utils.dart';
 import 'package:xilancer/ui/widgets/custom_input.dart';
 
-class CountryDropdownPopup extends StatelessWidget {
-  const CountryDropdownPopup({Key? key}) : super(key: key);
+class StatesDropdownPopup extends StatelessWidget {
+  const StatesDropdownPopup({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +23,9 @@ class CountryDropdownPopup extends StatelessWidget {
       body: SmartRefresher(
         controller: refreshController,
         enablePullUp: true,
-        enablePullDown:
-            countryDropdownController.currentPage > 1 ? false : true,
+        enablePullDown: statesDropdownController.currentPage > 1 ? false : true,
         onRefresh: () async {
-          final result =
-              await countryDropdownController.fetchCountries(context);
+          final result = await statesDropdownController.fetchCountries(context);
           if (result) {
             refreshController.refreshCompleted();
           } else {
@@ -35,8 +33,7 @@ class CountryDropdownPopup extends StatelessWidget {
           }
         },
         onLoading: () async {
-          final result =
-              await countryDropdownController.fetchCountries(context);
+          final result = await statesDropdownController.fetchCountries(context);
           if (result) {
             debugPrint('loadcomplete ran');
             refreshController.loadComplete();
@@ -52,37 +49,36 @@ class CountryDropdownPopup extends StatelessWidget {
         child: SingleChildScrollView(
           child: Container(
             padding: paddingSym(h: 6, v: 8),
-            child:
-                GetBuilder<CountryDropdownController>(builder: (cController) {
+            child: GetBuilder<StatesDropdownController>(builder: (sController) {
               return Column(
                 children: [
                   CustomInput(
-                    hintText: 'Search country',
+                    hintText: 'Search state',
                     paddingHorizontal: 17,
                     prefixIcon: Icons.search,
                     onChanged: (v) {},
                   ),
                   gapH(2),
-                  cController.countryDropdownList.isNotEmpty
-                      ? cController.countryDropdownList[0] !=
-                              ConstString.selectCountry
+                  sController.statesDropdownList.isNotEmpty
+                      ? sController.statesDropdownList[0] !=
+                              ConstString.selectState
                           ? ListView.builder(
                               shrinkWrap: true,
                               scrollDirection: Axis.vertical,
                               physics: const NeverScrollableScrollPhysics(),
-                              itemCount: cController.countryDropdownList.length,
+                              itemCount: sController.statesDropdownList.length,
                               itemBuilder: (listContext, i) {
                                 return InkWell(
                                   onTap: () async {
-                                    cController.setCountryValue(
-                                        cController.countryDropdownList[i]);
+                                    sController.setStatesValue(
+                                        sController.statesDropdownList[i]);
 
                                     //                         // setting the id of selected value
-                                    cController.setSelectedCountryId(
-                                        cController.countryDropdownIndexList[
-                                            cController.countryDropdownList
-                                                .indexOf(cController
-                                                    .countryDropdownList[i])]);
+                                    sController.setSelectedStatesId(
+                                        sController.statesDropdownIndexList[
+                                            sController.statesDropdownList
+                                                .indexOf(sController
+                                                    .statesDropdownList[i])]);
 
                                     // Provider.of<StateDropdownService>(context,
                                     //         listen: false)
@@ -97,12 +93,12 @@ class CountryDropdownPopup extends StatelessWidget {
                                         border: Border(
                                             bottom:
                                                 BorderSide(color: greyFive))),
-                                    child: Text(
-                                        cController.countryDropdownList[i]),
+                                    child:
+                                        Text(sController.statesDropdownList[i]),
                                   ),
                                 );
                               })
-                          : const Text('No country found')
+                          : const Text('No state found')
                       : Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [showLoading()],

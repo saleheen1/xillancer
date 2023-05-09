@@ -10,7 +10,7 @@ class CustomInput extends StatelessWidget {
   final bool isPasswordField;
   final FocusNode? focusNode;
   final bool isNumberField;
-  final String? prefixIcon;
+  final IconData? prefixIcon;
   final IconData? suffixIcon;
   final double? paddingHorizontal;
   final double? paddingVertical;
@@ -56,17 +56,7 @@ class CustomInput extends StatelessWidget {
               prefixIcon: prefixIcon != null
                   ? Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 20.0,
-                          width: 40.0,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(prefixIcon!),
-                                fit: BoxFit.fitHeight),
-                          ),
-                        ),
-                      ],
+                      children: [Icon(prefixIcon)],
                     )
                   : null,
               suffixIcon: suffixIcon != null
