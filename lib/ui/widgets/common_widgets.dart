@@ -68,6 +68,36 @@ buttonPrimary(String title, VoidCallback pressed,
   );
 }
 
+borderButtonPrimary(
+  String title,
+  VoidCallback pressed, {
+  double paddingVertical = 17,
+  double fontsize = 14,
+  double borderRadius = 8,
+  Color color = greyFour,
+  Color borderColor = Colors.grey,
+}) {
+  return InkWell(
+    onTap: pressed,
+    child: GetBuilder<TranslateController>(builder: (tr) {
+      return Container(
+          width: double.infinity,
+          alignment: Alignment.center,
+          padding: EdgeInsets.symmetric(vertical: paddingVertical),
+          decoration: BoxDecoration(
+              border: Border.all(color: borderColor),
+              borderRadius: BorderRadius.circular(borderRadius)),
+          child: Text(
+            tr.getString(title),
+            style: TextStyle(
+              color: color,
+              fontSize: fontsize,
+            ),
+          ));
+    }),
+  );
+}
+
 bRow(
     {String? icon,
     required String title,

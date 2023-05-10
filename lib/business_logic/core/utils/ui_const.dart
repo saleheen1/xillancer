@@ -83,3 +83,16 @@ EdgeInsets marginSym({required double h, required double v}) {
   return EdgeInsets.symmetric(
       horizontal: Get.width * h / 100, vertical: Get.width * v / 100);
 }
+
+EdgeInsets marginOnly({
+  required double left,
+  required double top,
+  required double right,
+  required double bottom,
+}) {
+  return EdgeInsets.only(
+      left: Get.width * left / 100,
+      top: Get.width * top / 100,
+      right: Get.width * right / 100,
+      bottom: Get.width * bottom / 100);
+}

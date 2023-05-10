@@ -44,4 +44,11 @@ var translateStrings = {
   ConstString.degree: ConstString.degree,
   ConstString.fromTo: ConstString.fromTo,
   ConstString.selectCountry: ConstString.selectCountry,
+  ConstString.workExp: ConstString.workExp,
+  ConstString.fillFormToAddWorkExp: ConstString.fillFormToAddWorkExp,
+  ConstString.title: ConstString.title,
+  ConstString.organization: ConstString.organization,
+  ConstString.enterOrganization: ConstString.enterOrganization,
+  ConstString.address: ConstString.address,
+  ConstString.enterAddress: ConstString.enterAddress,
 };

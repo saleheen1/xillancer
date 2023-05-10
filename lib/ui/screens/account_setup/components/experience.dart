@@ -5,10 +5,8 @@ import 'package:xilancer/business_logic/controllers/translate_controller.dart';
 import 'package:xilancer/business_logic/core/utils/const_strings.dart';
 import 'package:xilancer/business_logic/core/utils/constant_colors.dart';
 import 'package:xilancer/business_logic/core/utils/ui_const.dart';
-import 'package:xilancer/ui/screens/auth/dropdowns/country_dropdown.dart';
-import 'package:xilancer/ui/screens/auth/dropdowns/states_dropdown.dart';
+import 'package:xilancer/ui/screens/account_setup/components/add_work_exp_popup_content.dart';
 import 'package:xilancer/ui/widgets/common_widgets.dart';
-import 'package:xilancer/ui/widgets/custom_input.dart';
 import 'package:xilancer/ui/widgets/text_utils.dart';
 
 class Experience extends StatelessWidget {
@@ -29,11 +27,49 @@ class Experience extends StatelessWidget {
             ),
             gapH(8),
             addExpBtn(
+              title: 'Add work experience',
+              ontap: () {},
+            ),
+            educationAndWorkExpCard(
+              context,
+              title: 'Front-End Developer',
+              subtitle: 'Xgenious',
+              icon1: 'assets/svg/calendar.svg',
+              icon1Title: 'Duration',
+              icon1Value: '08 Feb 2022 - Current Position',
+              icon2: 'assets/svg/location.svg',
+              icon2Title: 'Location',
+              icon2Value: '8502 Preston Rd. Inglewood, Maine, USA',
+              ontap: () {
+                showModalBottomSheet(
+                  context: context,
+                  isScrollControlled: true,
+                  builder: (context) => const AddWorkExpPopupContent(),
+                );
+              },
+            ),
+            addExpBtn(
               title: ConstString.addEduQualification,
               ontap: () {},
             ),
-            gapH(8),
-            educationCard(context)
+            educationAndWorkExpCard(
+              context,
+              title: 'CSE',
+              subtitle: 'University of Oxford',
+              icon1: 'assets/svg/degree.svg',
+              icon1Title: ConstString.degree,
+              icon1Value: 'B.sc. in computer science & engineering',
+              icon2: 'assets/svg/calendar.svg',
+              icon2Title: ConstString.fromTo,
+              icon2Value: '2018- 2022 (Expected)',
+              ontap: () {
+                showModalBottomSheet(
+                  context: context,
+                  isScrollControlled: true,
+                  builder: (context) => const AddWorkExpPopupContent(),
+                );
+              },
+            ),
           ],
         ),
       );
@@ -41,9 +77,22 @@ class Experience extends StatelessWidget {
   }
 }
 
-educationCard(BuildContext context) {
+// ==========>
+// -----------
+
+educationAndWorkExpCard(BuildContext context,
+    {required String title,
+    required String subtitle,
+    required String icon1,
+    required String icon1Title,
+    required String icon1Value,
+    required String icon2,
+    required String icon2Title,
+    required String icon2Value,
+    required VoidCallback ontap}) {
   return Container(
     padding: paddingSym(h: 4.5, v: 4),
+    margin: marginOnly(left: 0, top: 4, right: 0, bottom: 6),
     decoration: BoxDecoration(
         borderRadius: radius(2), border: Border.all(color: borderColor)),
     child: Column(children: [
@@ -55,24 +104,17 @@ educationCard(BuildContext context) {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'CSE',
+                title,
                 style: TextUtils.title(),
               ),
               gapH(1),
               Text(
-                'University of Oxford',
+                subtitle,
                 style: TextUtils.paragraphTwo(),
               )
             ],
           ),
-          InkWell(
-              onTap: () {
-                showModalBottomSheet(
-                  context: context,
-                  builder: (context) => addEduPopup(),
-                );
-              },
-              child: SvgPicture.asset('assets/svg/edit.svg'))
+          InkWell(onTap: ontap, child: SvgPicture.asset('assets/svg/edit.svg'))
         ],
       ),
       gapH(4),
@@ -80,17 +122,11 @@ educationCard(BuildContext context) {
 
       gapH(4),
 
-      bRow(
-          icon: 'assets/svg/degree.svg',
-          title: ConstString.degree,
-          text: 'B.sc. in computer science & engineering'),
+      bRow(icon: icon1, title: icon1Title, text: icon1Value),
 
       gapH(5),
 
-      bRow(
-          icon: 'assets/svg/calendar.svg',
-          title: ConstString.fromTo,
-          text: '2018- 2022 (Expected)'),
+      bRow(icon: icon2, title: icon2Title, text: icon2Value),
 
       gapH(3),
     ]),
@@ -98,6 +134,7 @@ educationCard(BuildContext context) {
 }
 
 // =============>
+// -------------
 
 addExpBtn({required String title, required VoidCallback ontap}) {
   return InkWell(
@@ -122,114 +159,21 @@ addExpBtn({required String title, required VoidCallback ontap}) {
   );
 }
 
-// ======================>
+//==============>
+//---------------
 
-addEduPopup() {
-  return Container(
-    padding: paddingSym(h: 4, v: 5),
-    child: SingleChildScrollView(
-      child: GetBuilder<TranslateController>(builder: (tr) {
-        return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          //top
-          SizedBox(
-            width: double.infinity,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  'Work experience',
-                  style: TextUtils.titleLight(),
-                ),
-                gapH(2),
-                Text(
-                  'Fill the form below to add your work exprience',
-                  style: TextUtils.paragraphSmall(color: greyFour),
-                ),
-              ],
-            ),
-          ),
-          gapH(7),
-
-          //bottom
-          Text(
-            tr.getString('Title'),
-            style: TextUtils.inputLabel(),
-          ),
-          gapH(4),
-          CustomInput(
-            hintText: tr.getString('Ex: Front-End Developer'),
-            validation: (value) {
-              if (value == null || value.isEmpty) {
-                return tr.getString('');
-              }
-              return null;
-            },
-          ),
-
-          //
-          Text(
-            tr.getString('Organization'),
-            style: TextUtils.inputLabel(),
-          ),
-          gapH(4),
-          CustomInput(
-            hintText: tr.getString('Enter organization'),
-            validation: (value) {
-              if (value == null || value.isEmpty) {
-                return tr.getString('');
-              }
-              return null;
-            },
-          ),
-
-          //
-          Text(
-            tr.getString('Address'),
-            style: TextUtils.inputLabel(),
-          ),
-          gapH(4),
-          CustomInput(
-            hintText: tr.getString('Enter address'),
-            validation: (value) {
-              if (value == null || value.isEmpty) {
-                return tr.getString('');
-              }
-              return null;
-            },
-          ),
-
-          //country state
-          Row(
-            children: [
-              Expanded(
-                  child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    tr.getString(ConstString.selectCountry),
-                    style: TextUtils.inputLabel(),
-                  ),
-                  gapH(4),
-                  const CountryDropdown(),
-                ],
-              )),
-              gapW(5),
-              Expanded(
-                  child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    tr.getString(ConstString.selectState),
-                    style: TextUtils.inputLabel(),
-                  ),
-                  gapH(4),
-                  const StatesDropdown(),
-                ],
-              )),
-            ],
-          )
-        ]);
-      }),
+pickTimeContainer({required pickedDate, required VoidCallback ontap}) {
+  return InkWell(
+    onTap: ontap,
+    child: Container(
+      width: double.infinity,
+      padding: paddingSym(h: 4, v: 4.2),
+      decoration: BoxDecoration(
+          border: Border.all(color: greyFive), borderRadius: radius(2)),
+      child: Text(
+        pickedDate.toString(),
+        style: TextUtils.paragraphTwo(color: greyFour),
+      ),
     ),
   );
 }

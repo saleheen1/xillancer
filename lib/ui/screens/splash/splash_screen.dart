@@ -13,7 +13,7 @@ class SplashScreen extends StatelessWidget {
     initiateControllers();
 
     Future.delayed(const Duration(seconds: 2), () {
-      Get.offAll(const ChooseRolePage());
+      Get.offAll(() => const ChooseRolePage());
     });
 
     return Scaffold(

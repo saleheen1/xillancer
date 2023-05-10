@@ -51,4 +51,12 @@ class ConstString {
   static const String fromTo = 'From-To';
   static const String selectCountry = 'Select country';
   static const String selectState = 'Select state';
+  static const String workExp = 'Work experience';
+  static const String fillFormToAddWorkExp =
+      'Fill the form below to add your work exprience';
+  static const String title = 'Title';
+  static const String organization = 'Organization';
+  static const String enterOrganization = 'Enter organization';
+  static const String address = 'Address';
+  static const String enterAddress = 'Enter address';
 }
