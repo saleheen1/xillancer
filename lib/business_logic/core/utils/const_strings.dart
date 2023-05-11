@@ -59,4 +59,27 @@ class ConstString {
   static const String enterOrganization = 'Enter organization';
   static const String address = 'Address';
   static const String enterAddress = 'Enter address';
+  static const String addWorkExperience = 'Add work experience';
+  static const String duration = 'Duration';
+  static const String location = 'Location';
+
+  static const String plzEnterTitle = 'Please enter a title';
+  static const String plzEnterOrganization = 'Please enter a organization';
+  static const String plzEnterAddress = 'Please enter a address';
+  static const String startDate = 'Start date';
+  static const String endDate = 'End date';
+  static const String cancel = 'Cancel';
+  static const String add = 'Add';
+
+  static const String educationalQualification = 'Educational qualification';
+  static const String university = 'University';
+  static const String enterUniversity = 'Enter university';
+  static const String plzEnterUniversity = 'Please enter a university';
+  static const String enterDegree = 'Enter degree';
+  static const String plzEnterDegree = 'Please enter a degree';
+  static const String major = 'Major';
+  static const String enterMajor = 'Enter major';
+  static const String plzEnterMajor = 'Please enter a major';
+  static const String fillFormToAddEduBg =
+      'Fill the form below to add  your educational background';
 }

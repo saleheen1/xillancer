@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omni_datetime_picker/omni_datetime_picker.dart';
 import 'package:xilancer/business_logic/core/utils/const_strings.dart';
 import 'package:xilancer/business_logic/core/utils/constant_colors.dart';
 import 'package:xilancer/business_logic/core/utils/ui_const.dart';
-import 'package:xilancer/ui/screens/auth/dropdowns/country_dropdown.dart';
-import 'package:xilancer/ui/screens/auth/dropdowns/states_dropdown.dart';
+import 'package:xilancer/ui/screens/account_setup/components/add_work_exp_popup_content.dart';
 import 'package:xilancer/ui/widgets/common_widgets.dart';
 import 'package:xilancer/ui/widgets/custom_input.dart';
 import 'package:xilancer/ui/widgets/text_utils.dart';
 
 import '../../../../business_logic/controllers/translate_controller.dart';
 
-class AddWorkExpPopupContent extends StatelessWidget {
-  const AddWorkExpPopupContent({
+class AddEducationPopupContent extends StatelessWidget {
+  const AddEducationPopupContent({
     super.key,
   });
 
@@ -33,12 +31,12 @@ class AddWorkExpPopupContent extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        tr.getString(ConstString.workExp),
+                        tr.getString(ConstString.educationalQualification),
                         style: TextUtils.titleLight(),
                       ),
                       gapH(2),
                       Text(
-                        tr.getString(ConstString.fillFormToAddWorkExp),
+                        tr.getString(ConstString.fillFormToAddEduBg),
                         style: TextUtils.paragraphSmall(color: greyFour),
                       ),
                     ],
@@ -48,15 +46,15 @@ class AddWorkExpPopupContent extends StatelessWidget {
 
                 //bottom
                 Text(
-                  tr.getString(ConstString.title),
+                  tr.getString(ConstString.university),
                   style: TextUtils.inputLabel(),
                 ),
                 gapH(4),
                 CustomInput(
-                  hintText: tr.getString(ConstString.exFrontendDev),
+                  hintText: tr.getString(ConstString.enterUniversity),
                   validation: (value) {
                     if (value == null || value.isEmpty) {
-                      return tr.getString(ConstString.plzEnterTitle);
+                      return tr.getString(ConstString.plzEnterUniversity);
                     }
                     return null;
                   },
@@ -64,15 +62,15 @@ class AddWorkExpPopupContent extends StatelessWidget {
 
                 //
                 Text(
-                  tr.getString(ConstString.organization),
+                  tr.getString(ConstString.degree),
                   style: TextUtils.inputLabel(),
                 ),
                 gapH(4),
                 CustomInput(
-                  hintText: tr.getString(ConstString.enterOrganization),
+                  hintText: tr.getString(ConstString.enterDegree),
                   validation: (value) {
                     if (value == null || value.isEmpty) {
-                      return tr.getString(ConstString.plzEnterOrganization);
+                      return tr.getString(ConstString.plzEnterDegree);
                     }
                     return null;
                   },
@@ -80,53 +78,19 @@ class AddWorkExpPopupContent extends StatelessWidget {
 
                 //
                 Text(
-                  tr.getString(ConstString.address),
+                  tr.getString(ConstString.major),
                   style: TextUtils.inputLabel(),
                 ),
                 gapH(4),
                 CustomInput(
-                  hintText: tr.getString(ConstString.enterAddress),
+                  hintText: tr.getString(ConstString.enterMajor),
                   validation: (value) {
                     if (value == null || value.isEmpty) {
-                      return tr.getString(ConstString.plzEnterAddress);
+                      return tr.getString(ConstString.plzEnterMajor);
                     }
                     return null;
                   },
                 ),
-                gapH(1),
-
-                //country state
-                Row(
-                  children: [
-                    Expanded(
-                        child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          tr.getString(ConstString.selectCountry),
-                          style: TextUtils.inputLabel(),
-                        ),
-                        gapH(4),
-                        const CountryDropdown(),
-                      ],
-                    )),
-                    gapW(5),
-                    Expanded(
-                        child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          tr.getString(ConstString.selectState),
-                          style: TextUtils.inputLabel(),
-                        ),
-                        gapH(4),
-                        const StatesDropdown(),
-                      ],
-                    )),
-                  ],
-                ),
-
-                gapH(5),
 
                 //start time end time
                 Row(
@@ -195,30 +159,4 @@ class AddWorkExpPopupContent extends StatelessWidget {
       ),
     );
   }
-}
-
-//==============>
-//---------------
-
-pickedTimeContainer({required pickedDate, required VoidCallback ontap}) {
-  return InkWell(
-    onTap: ontap,
-    child: Container(
-      width: double.infinity,
-      padding: paddingSym(h: 4, v: 4.2),
-      decoration: BoxDecoration(
-          border: Border.all(color: greyFive), borderRadius: radius(2)),
-      child: Text(
-        pickedDate.toString(),
-        style: TextUtils.paragraphTwo(color: greyFour),
-      ),
-    ),
-  );
-}
-
-Future pickDateTime(BuildContext context) async {
-  DateTime? dateTime = await showOmniDateTimePicker(
-      context: context, type: OmniDateTimePickerType.date);
-
-  return dateTime;
 }

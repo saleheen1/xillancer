@@ -68,6 +68,41 @@ buttonPrimary(String title, VoidCallback pressed,
   );
 }
 
+buttonWithIcon(String title, VoidCallback pressed,
+    {isloading = false,
+    bgColor,
+    double paddingVertical = 18,
+    double borderRadius = 8,
+    fontColor = Colors.white,
+    required IconData icon}) {
+  return InkWell(
+    onTap: pressed,
+    child: GetBuilder<TranslateController>(
+      builder: (TranslateController tr) => Container(
+          width: double.infinity,
+          alignment: Alignment.center,
+          padding: EdgeInsets.symmetric(vertical: paddingVertical),
+          decoration: BoxDecoration(
+              color: bgColor ?? primaryColor,
+              borderRadius: BorderRadius.circular(borderRadius)),
+          child: isloading == false
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      icon,
+                      color: Colors.white,
+                    ),
+                    gapW(2),
+                    Text(tr.getString(title),
+                        style: TextUtils.paragraphTwo(color: fontColor)),
+                  ],
+                )
+              : showLoading(color: Colors.white)),
+    ),
+  );
+}
+
 borderButtonPrimary(
   String title,
   VoidCallback pressed, {

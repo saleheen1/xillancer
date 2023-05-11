@@ -6,7 +6,10 @@ import 'package:xilancer/business_logic/core/utils/const_strings.dart';
 import 'package:xilancer/business_logic/core/utils/constant_colors.dart';
 import 'package:xilancer/business_logic/core/utils/ui_const.dart';
 import 'package:xilancer/ui/screens/account_setup/components/account_setup_helper.dart';
-import 'package:xilancer/ui/screens/account_setup/components/experience.dart';
+import 'package:xilancer/ui/screens/account_setup/components/add_skill.dart';
+import 'package:xilancer/ui/screens/account_setup/components/educational_experience.dart';
+import 'package:xilancer/ui/screens/account_setup/components/finish_setup.dart';
+import 'package:xilancer/ui/screens/account_setup/components/work_experience.dart';
 import 'package:xilancer/ui/screens/account_setup/components/introduction.dart';
 import 'package:xilancer/ui/screens/account_setup/components/steps_of_account_setup.dart';
 import 'package:xilancer/ui/widgets/common_widgets.dart';
@@ -50,7 +53,13 @@ class _AccountSetupPageState extends State<AccountSetupPage> {
                           if (i == 0) {
                             return const Introduction();
                           } else if (i == 1) {
-                            return const Experience();
+                            return const WorkExperience();
+                          } else if (i == 2) {
+                            return const EducationalExperience();
+                          } else if (i == 3) {
+                            return const AddSkill();
+                          } else if (i == 4) {
+                            return const FinishSetup();
                           }
                           return null;
                         }),
